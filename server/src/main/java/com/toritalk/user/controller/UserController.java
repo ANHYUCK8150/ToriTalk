@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +30,12 @@ public class UserController {
 	}
 
 	@PostMapping
-	public ResponseEntity<UserResponse> setUser(UserRequest request, @RequestBody MultipartFile imageFile) {
+	public ResponseEntity<UserResponse> createUser(UserRequest request, @RequestBody MultipartFile imageFile) {
+		return ResponseEntity.status(HttpStatus.OK).body(userService.setUser(request, imageFile));
+	}
+
+	@PutMapping
+	public ResponseEntity<UserResponse> modifyUser(UserRequest request, @RequestBody MultipartFile imageFile) {
 		return ResponseEntity.status(HttpStatus.OK).body(userService.setUser(request, imageFile));
 	}
 }
