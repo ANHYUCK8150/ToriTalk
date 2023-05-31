@@ -1,7 +1,9 @@
 package com.toritalk.user.repository;
 
-import com.toritalk.user.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long>{
+import com.toritalk.user.entity.User;
+
+public interface UserRepository extends JpaRepository<User, Long> {
+	Boolean existsByName(String name);
 }
