@@ -1,10 +1,13 @@
 package com.toritalk.user.service;
 
-import com.toritalk.user.entity.User;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Optional;
+import com.toritalk.common.dto.PageResponse;
+import com.toritalk.user.dto.UserResponse;
 
 public interface UserService {
-    UserDetails loadUserById(Long userId);
+	UserDetails loadUserById(Long userId);
+
+	PageResponse<UserResponse> getUsers(Pageable pageable);
 }
