@@ -14,4 +14,6 @@ public interface UserService {
 	PageResponse<UserResponse> getUsers(Pageable pageable);
 
 	UserResponse setUser(UserRequest request, MultipartFile imageFile);
+
+	Boolean removeUser(Long id);
 }

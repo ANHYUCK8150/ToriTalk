@@ -77,4 +77,11 @@ public class UserServiceImpl implements UserService {
 			).map(UserResponse::from)
 			.orElseThrow(() -> new IllegalArgumentException("저장 실패"));
 	}
+
+	@Override
+	@Transactional
+	public Boolean removeUser(Long userId) {
+		userRepository.deleteById(userId);
+		return true;
+	}
 }
