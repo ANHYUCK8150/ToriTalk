@@ -84,4 +84,11 @@ public class UserServiceImpl implements UserService {
 		userRepository.deleteById(userId);
 		return true;
 	}
+
+	@Override
+	public UserResponse getUser(Long userId) {
+		return userRepository.findById(userId)
+			.map(UserResponse::from)
+			.orElseThrow(() -> new IllegalArgumentException("해당 사용자를 찾을 수 없습니다."));
+	}
 }

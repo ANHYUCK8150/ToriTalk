@@ -16,4 +16,6 @@ public interface UserService {
 	UserResponse setUser(UserRequest request, MultipartFile imageFile);
 
 	Boolean removeUser(Long id);
+
+	UserResponse getUser(Long userId);
 }
